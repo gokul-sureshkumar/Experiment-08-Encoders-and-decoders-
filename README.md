@@ -1,7 +1,13 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+
+To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+### HARDWARE REQUIRED:
+
+– PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED: 
+
+Quartus prime
 ### THEORY 
 
 ## Encoders
@@ -62,35 +68,82 @@ D7 = X Y Z
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by: GOKUL S
+
+RegisterNumber:  212222110011
+
 */
+```
+i.)For Encoder:
+module enc(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule
+```
+```
+ii.)For Decoder:
+module dec (a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
 
-
-
+```
 
 
 
 ### RTL LOGIC  
 
+i.)For Encoder:
 
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/ff647131-ec04-457a-b549-1f3698f98133)
 
+ii.)For Decoder:
 
-
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/fc6fa911-578c-46d0-96e5-83bf344d31d4)
 
 
 
 ### TIMING DIGRAMS  
 
+i.)For Encoder:
 
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/3913056e-5a99-471b-a145-f7e889bdabba)
+
+ii.)For Decoder:
+
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/57869868-9ee4-44dd-8f37-e15cc06a80bc)
 
 
 
 ### TRUTH TABLE 
 
+i.)For Encoder:
 
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/195458de-161f-4593-ada1-4c6af9dba342)
+
+ii.)For Decoder:
+
+![image](https://github.com/gokul-sureshkumar/Experiment-08-Encoders-and-decoders-/assets/121148715/e2048db6-b25f-4f44-be0f-03f3d7edc6d5)
 
 
 
 
 ### RESULTS 
+
+Thus the program to design encoder and decoder is successfully completed.
